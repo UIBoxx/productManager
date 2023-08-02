@@ -11,35 +11,85 @@ interface Product {
   brand: string;
 }
 
+interface Brand {
+  name: string;
+  products: Product[];
+}
+
 function App() {
   const [productData, setProductData] = useState(brandsData);
 
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
+  
+  // function handleAddProduct(brandName: string, productName: string) {
+  //   const brand = productData.brands.find((brand) => brand.name === brandName);
+
+  //   if (brand) {
+  //     // Create a new product object
+  //     const newProduct: Product = {
+  //       id: brand.products[brand.products.length - 1].id + 1,
+  //       name: productName,
+  //       brand: brandName,
+  //     };
+
+  //     // Find the brand and update its products array with the new product
+  //     const updatedBrands = productData.brands.map((existingBrand) =>
+  //       existingBrand.name === brandName
+  //         ? { ...existingBrand, products: [...existingBrand.products, newProduct] }
+  //         : existingBrand
+  //     );
+
+  //     // Update the state with the new data
+  //     setProductData({ ...productData, brands: updatedBrands });
+  //   }
+  // }
+
   function handleAddProduct(brandName: string, productName: string) {
-    const brand = productData.brands.find((brand) => brand.name === brandName);
-    console.log(brand);
-
-    if (brand) {
-      // Create a new product object
-      const newProduct: Product = {
-        id: brand.products[brand.products.length - 1].id + 1,
-        name: productName,
-        brand: brandName,
-      };
-
-      // Find the brand and update its products array with the new product
-      const updatedBrands = productData.brands.map((existingBrand) =>
-        existingBrand.name === brandName
-          ? { ...existingBrand, products: [...existingBrand.products, newProduct] }
-          : existingBrand
-      );
-
-      // Update the state with the new data
-      setProductData({ ...productData, brands: updatedBrands });
+    console.log(brandsData);
+    // Check if the brand already exists
+    const existingBrand = productData.brands.find((brand) => brand.name === brandName);
+  
+    try{
+      if (existingBrand) {
+        // Brand already exists, proceed to add the product to the existing brand
+        const newProduct: Product = {
+          id: existingBrand.products[existingBrand.products.length - 1].id + 1,
+          name: productName,
+          brand: brandName,
+        };
+    
+        const updatedBrands = productData.brands.map((brand) =>
+          brand.name === brandName ? { ...brand, products: [...brand.products, newProduct] } : brand
+        );
+    
+        setProductData({ ...productData, brands: updatedBrands });
+      } else {
+  
+        // Brand does not exist, create a new brand and a new database
+        const newBrand: Brand = {
+          name: brandName,
+          products: [
+            {
+              id: 1, // Assuming this is the first product for the new brand
+              name: productName,
+              brand: brandName,
+            },
+          ],
+        };
+    
+        const updatedBrands = [...productData.brands, newBrand];
+    
+        setProductData({ ...productData, brands: updatedBrands });
+      }
+    }catch{
+      console.error();
+      console.log('Error is got');
+      
     }
   }
+  
 
   const handleDeleteProduct = (brandName: string, productId: number): void => {
     // Find the brand with the specified name

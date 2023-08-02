@@ -21,6 +21,7 @@ export interface Props {
 
 function ProductTable({ productData, onDeleteProduct, onEditProduct }: Props){
   const [searchTerms, setSearchTerms] = useState<string[]>(productData.brands.map(() => ''));
+  console.log(productData);
 
   const handleSearchTermChange = (brandIndex: number, value: string) => {
     setSearchTerms((prevSearchTerms) => {
@@ -29,6 +30,7 @@ function ProductTable({ productData, onDeleteProduct, onEditProduct }: Props){
       return newSearchTerms;
     });
   };
+  
 
   const sortProductsAlphabetically = (products: Product[]) => {
     return products.slice().sort((a, b) => a.name.localeCompare(b.name));
