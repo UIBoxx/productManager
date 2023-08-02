@@ -10,6 +10,7 @@
     gap: 2rem;
     justify-content: center;
     background-color: #53525145;
+    overflow-x: hidden;
   
   }
   
@@ -46,7 +47,6 @@
   .form-field-wrapper select:focus {
     outline: none;
     border-color: var(--Color-secondary);
-    box-shadow: 0 0 5px rgba(0, 102, 204, 0.5);
   }
   
   .form-field-wrapper input[type="text"] {
@@ -61,7 +61,6 @@
   .form-field-wrapper input[type="text"]:focus {
     outline: none;
     border-color: var(--Color-secondary);
-    box-shadow: 0 0 5px rgba(0, 102, 204, 0.5);
   }
   
   .Addbutton {

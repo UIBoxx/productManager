@@ -6,7 +6,8 @@ interface ProductFormProps {
   handleAddProduct: (brandName: string, productName: string) => void;
 }
 
-const ProductForm: React.FC<ProductFormProps> = ({ handleAddProduct }) => {
+
+function ProductForm({handleAddProduct}: ProductFormProps){
  
   const [formData, setFormData] = useState({
     brand: '',
@@ -15,19 +16,17 @@ const ProductForm: React.FC<ProductFormProps> = ({ handleAddProduct }) => {
 
   const handleBrandChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     // Handle brand change here if needed
-    const { value } = event.target;
     setFormData((prevFormData) => ({
       ...prevFormData,
-      brand: value
+      brand: event.target.value
     }));
   };
 
   const handleProductChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     // Handle product change here if needed
-    const { value } = event.target;
     setFormData((prevFormData) => ({
       ...prevFormData,
-      product: value
+      product: event.target.value
     }));
   };
 
@@ -70,6 +69,6 @@ const ProductForm: React.FC<ProductFormProps> = ({ handleAddProduct }) => {
       </div>
     </div>
   );
-};
+}
 
 export default ProductForm;

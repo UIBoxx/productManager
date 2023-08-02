@@ -9,6 +9,7 @@
     align-items: start;
     justify-content: center;
     flex-wrap: wrap;
+    overflow-x: hidden;
   }
   
   .product-table {
@@ -29,6 +30,14 @@
   .product-brand {
     color: #fff;
     font-weight: bold;
+  }
+
+  .search-Box> input[type="text"]{
+    width: 200px;
+    height: 30px;
+    border: none;
+    padding: 0 1rem;
+    border-radius: 5px;
   }
   
   .product {
