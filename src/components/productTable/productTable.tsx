@@ -20,10 +20,10 @@ interface Props {
 }
 
 function ProductTable({ productData, onDeleteProduct, onEditProduct }: Props) {
-  const [searchInput, setSearchInput] = useState(''); // Create a state for the search input
+  const [searchInput, setSearchInput] = useState(''); 
 
   const handleSearchInputChange = (event:  React.ChangeEvent<HTMLInputElement>) => {
-    setSearchInput(event.target.value); // Update the search input state on input change
+    setSearchInput(event.target.value); 
   };
 
   const sortProductsAlphabetically = (products: Product[]) => {
@@ -44,7 +44,7 @@ function ProductTable({ productData, onDeleteProduct, onEditProduct }: Props) {
           type="text"
           placeholder="Search product..."
           value={searchInput}
-          onChange={handleSearchInputChange} // Add onChange event handler for search input
+          onChange={handleSearchInputChange} 
         />
       </div>
       {filteredProducts.map((brand) => {
