@@ -46,6 +46,13 @@
     cursor: pointer;
   }
 
+  .no-products-message{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
 
   
   @media screen and (max-width: 800px) {

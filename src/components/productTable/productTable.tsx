@@ -1,6 +1,6 @@
 import './productTable.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faCircleExclamation, faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 export interface Product {
   id: number;
@@ -34,7 +34,7 @@ function ProductTable({ productData, onDeleteProduct, onEditProduct }: Props) {
               <h2>{brand.name.toUpperCase()}</h2>
             </div>
             {sortedProducts.length === 0 ? (
-              <div className="no-products-message">No products available</div>
+              <div className="no-products-message"><i><FontAwesomeIcon icon={faCircleExclamation} style={{fontSize:'2rem', color:'#aaa'}}/></i>No products available.</div>
             ) : (
               sortedProducts.map((product, index) => (
                 <div key={product.id} className="product">

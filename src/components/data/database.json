@@ -1,36 +1,29 @@
 {
-    "brands": [
-      {
-        "name": "Apple",
-        "products": [
-          { "id": 1, "name": "MacBook Pro" , "brand": "Apple"},
-          { "id": 2, "name": "iPhone 13", "brand": "Apple" },
-          { "id": 3, "name": "iPad Pro", "brand": "Apple" }          
-        ]
-      },
-      {
-        "name": "Samsung",
-        "products": [
-          { "id": 1, "name": "Galaxy S21" , "brand": "Samsung"},
-          { "id": 2, "name": "Galaxy Note 20", "brand": "Samsung" },
-          { "id": 3, "name": "Galaxy Tab S7" , "brand": "Samsung"}
-        ]
-      },
-      {
-        "name": "Vivo",
-        "products": [
-          { "id": 1, "name": "Vivo X60 Pro", "brand": "Vivo" },
-          { "id": 2, "name": "Vivo V21" , "brand": "Vivo"},
-          { "id": 3, "name": "Vivo Y73", "brand": "Vivo" }
-         
-        ]
-      },
-      {
-        "name": "Google",
-        "products": [
-          { "id": 1, "name": "Pixel 7", "brand": "Google" }
-        ]
-      }
-    ]
-  }
-  
+  "brands": [
+    {
+      "name": "Apple",
+      "products": [
+        { "id": 1, "name": "MacBook Pro" },
+        { "id": 2, "name": "iPhone 14" },
+        { "id": 3, "name": "AirPods Pro" }          
+      ]
+    },
+    {
+      "name": "Samsung",
+      "products": [
+        { "id": 1, "name": "Galaxy Book Pro" },
+        { "id": 2, "name": "QLED 65-inch" },
+        { "id": 3, "name": "Galaxy Watch 4" },
+        { "id": 4, "name": "Family Hub Fridge" }
+      ]
+    },
+    {
+      "name": "Google",
+      "products": [
+        { "id": 1, "name": "Pixel 7" },
+        { "id": 2, "name": "Pixelbook Pro" },
+        { "id": 3, "name": "Nest Hub 2nd Gen" }
+      ]
+    }
+  ]
+}
