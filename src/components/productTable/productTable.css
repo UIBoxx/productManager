@@ -1,4 +1,3 @@
-/* ProductTable.css */
 
 .main-content {
     min-height: 300px;
@@ -33,15 +32,6 @@
     font-weight: bold;
   }
 
-  .search-Box> input[type="text"]{
-    width: 200px;
-    height: 30px;
-    margin: 8px 0;
-    border: none;
-    padding: 0 1rem;
-    border-radius: 5px;
-  }
-  
   .product {
     width: 100%;
     height: 40px;

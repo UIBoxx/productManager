@@ -1,63 +1,63 @@
-import React, { useEffect, useState } from 'react';
-import brandsData from '../data/database.json';
+import React, { useState } from 'react';
 import './productForm.css';
+import { Product } from '../productTable/productTable';
 
 interface ProductFormProps {
   handleAddProduct: (brandName: string, productName: string) => void;
+    productData: {
+      brands: {
+        name: string;
+        products: Product[];
+      }[];
+    };
 }
 
-function ProductForm({ handleAddProduct }: ProductFormProps) {
-  const initialFormData = {
+function ProductForm({ handleAddProduct,productData }: ProductFormProps) {
+  const [formData, setFormData] = useState({
     brand: '',
     product: ''
-  };
-
-  const [formData, setFormData] = useState(initialFormData);
+  });
   const [customBrand, setCustomBrand] = useState(false);
-
-  useEffect(() => {
-    // Load data from local storage if available on component mount
-    const savedData = localStorage.getItem('productFormData');
-    if (savedData) {
-      setFormData(JSON.parse(savedData));
-    }
-  }, []);
-
-  useEffect(() => {
-    // Save form data to local storage whenever it changes
-    localStorage.setItem('productFormData', JSON.stringify(formData));
-  }, [formData]);
 
   const handleBrandChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedBrand = event.target.value;
     if (selectedBrand === 'custom') {
       setCustomBrand(true);
-      setFormData({ ...initialFormData, brand: '' });
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        brand: ''
+      }));
     } else {
       setCustomBrand(false);
-      setFormData({ ...initialFormData, brand: selectedBrand });
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        brand: selectedBrand
+      }));
     }
   };
 
   const handleCustomBrandChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, brand: event.target.value });
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      brand: event.target.value
+    }));
   };
 
   const handleProductChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, product: event.target.value });
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      product: event.target.value
+    }));
   };
 
   const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    try{
-      
-    if (formData.brand && formData.product) {
-      handleAddProduct(formData.brand, formData.product);
-      setFormData(initialFormData);
+
+    if (formData.product && (formData.brand || customBrand)) {
+      const brandName = customBrand ? formData.brand : formData.brand;
+      handleAddProduct(brandName, formData.product);
+      setFormData({ brand: '', product: '' });
       setCustomBrand(false);
-    }
-    }catch{
-      console.log('Error')
     }
   };
 
@@ -67,12 +67,12 @@ function ProductForm({ handleAddProduct }: ProductFormProps) {
         <label htmlFor="brand">Brand:</label><br />
         <select name="brand" id="brand" value={customBrand ? 'custom' : formData.brand} onChange={handleBrandChange}>
           <option value="">Select</option>
-          {brandsData.brands.map((brand) => (
+          {productData.brands.map((brand) => (
             <option key={brand.name} value={brand.name}>
               {brand.name}
             </option>
           ))}
-          <option value="custom">+add New</option>
+          <option value="custom">+ Add New</option>
         </select>
       </div>
       {customBrand && (
