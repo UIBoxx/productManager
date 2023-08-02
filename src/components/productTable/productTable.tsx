@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './ProductTable.css';
+import './productTable.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 
