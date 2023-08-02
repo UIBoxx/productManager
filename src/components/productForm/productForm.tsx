@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import './ProductForm.css';
 import brandsData from '../data/database.json';
+import './productForm.css';
+
 
 interface ProductFormProps {
   handleAddProduct: (brandName: string, productName: string) => void;
