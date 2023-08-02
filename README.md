@@ -1,5 +1,6 @@
 #
-![SAMPLE!](demo.png)
+# https://managebrands.netlify.app/
+#
 
 #
-https://managebrands.netlify.app/
+![SAMPLE!](demo.png)
