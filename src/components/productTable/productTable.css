@@ -10,6 +10,7 @@
     justify-content: center;
     flex-wrap: wrap;
     overflow-x: hidden;
+    padding: 2rem 0;
   }
   
   .product-table {
@@ -19,7 +20,7 @@
     align-items: center;
     justify-content: start;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: .5rem;
     padding: 1rem;
     background: #04695522;
     border-radius: 5px;
@@ -35,6 +36,7 @@
   .search-Box> input[type="text"]{
     width: 200px;
     height: 30px;
+    margin: 8px 0;
     border: none;
     padding: 0 1rem;
     border-radius: 5px;
