@@ -67,6 +67,10 @@
     background-color: #0a9006;
     width: 150px;
     height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
     font-size: 1.5rem;
     border-radius: 5px;
     outline: none;
@@ -81,5 +85,11 @@
   @media screen and (max-width: 800px) {
     .form-container{
         flex-direction: column;
+        min-height: 200px;
+        padding: 2rem 0;
+        gap: 1rem;
+    }
+    .form-field-wrapper{
+      justify-content: center;
     }
   }
