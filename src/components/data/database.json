@@ -13,7 +13,6 @@
       "products": [
         { "id": 1, "name": "Galaxy Book Pro" },
         { "id": 2, "name": "QLED 65-inch" },
-        { "id": 3, "name": "Galaxy Watch 4" },
         { "id": 4, "name": "Family Hub Fridge" }
       ]
     },
