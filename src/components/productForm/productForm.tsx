@@ -72,12 +72,12 @@ function ProductForm({ handleAddProduct,productData }: ProductFormProps) {
               {brand.name}
             </option>
           ))}
-          <option value="custom">+ Add New</option>
+          <option value="custom">+ Add New Brand</option>
         </select>
       </div>
       {customBrand && (
         <div className="form-field-wrapper">
-          <label htmlFor="customBrand">New Brand:</label><br />
+          <label htmlFor="customBrand">New Brand Name:</label><br />
           <input
             type="text"
             name="customBrand"
@@ -95,7 +95,7 @@ function ProductForm({ handleAddProduct,productData }: ProductFormProps) {
           onChange={handleProductChange}
         />
       </div>
-      <div className="form-field-wrapper">
+      <div className="btn-field-wrapper">
         <button className='Addbutton' onClick={handleSubmit}>Add</button>
       </div>
     </div>
